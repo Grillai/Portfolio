@@ -548,6 +548,15 @@ nav {
 
 
 @media screen and (max-width: 790px) {
+   
+
+    .inner_cursor{
+        display: none;
+    }
+
+    .outer_cursor{
+        display: none;
+    }
 
     .Hamburger{
         display: block;
