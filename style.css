@@ -1,0 +1,692 @@
+* {
+    margin: 0;
+    padding: 0;
+    cursor: none;    
+}
+
+
+
+body {
+    height: 900vh;
+    background-color: #ffffff;
+    transition: all 0.8s ease;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+*{
+    scrollbar-width: thin;
+    scrollbar-color: #FB2576 rgb(46, 5, 85);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #FB2576;
+    border-radius: 6px;
+}
+
+nav {
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.Hamburger{
+    display: none;
+    width: 40px;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 3px auto;
+    background-color: #000000;
+    float: right;
+    transition: all 0.3s cubic-bezier(.17,.67,.83,.67);
+}
+
+
+
+
+.Logo {
+    width: 220px;
+    height: 130px;
+    margin-right: 20px;
+}
+
+.Logo img {
+    width: 220px;
+    height: 130px;
+}
+
+.Collegamenti {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    width: 43%;
+}
+
+
+
+.Collegamenti a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.Collegamenti li {
+    transition: 0.3s;
+}
+
+.Collegamenti li:hover, a:hover {
+    transform: translateY(-3px);
+    color: #ff0066;
+}
+
+.inner_cursor{
+    height: 8px;
+    width: 8px;
+    position: fixed;
+    transform: translate(0px,0px);
+    background-color: #000000;
+    border-radius: 50%;
+    transition: height .3s cubic-bezier(0.46,0.03,0.52,0.96), width .3s cubic-bezier(0.46,0.03,0.52,0.96);
+    pointer-events: none;
+    z-index: 99;
+}
+
+
+.outer_cursor{
+    height: 40px;
+    width:  40px;
+    border-radius: 50%;
+    border: 2px solid #0066ff;
+    position: fixed;
+    transform: translate(0px, 0px);
+    pointer-events: none;
+    z-index: 98;
+    
+}
+
+.Social{
+    position:fixed;
+    top: 30%;
+    background-color: #000000;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 1;
+    cursor: pointer;
+    -webkit-box-shadow: 3px 0px 0px 2px #0066ff; 
+    box-shadow: 0px 0px 0px 2px #0066ff;
+
+}
+
+.Social.active{
+    left: -1.95%;
+    transition: .4s;
+}
+
+.Social.active:hover{
+    left: 0%;
+}
+
+.Social ul{
+    margin: 5px;
+   
+}
+.Social li{
+    list-style: none;
+    font-size: 20px;
+    padding: 8px 5px 8px 5px;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+    
+}
+
+.Social li:hover{
+    transform: scale(1.3);
+    color: #ff0066;
+    transition: 0.3s;
+}
+
+.Vegeta_loader{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    position: fixed;
+    background-color: #000000;
+}
+
+.Vegeta_loader img{
+    width: 240px;
+    object-fit: contain;
+    position: absolute;
+    left: 3%;
+    top: 3%;
+}
+
+.Wrapper_Contenuto {
+    margin: 1em auto;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.Parte_Sinistra{
+    width: 65%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+  
+}
+
+.Parte_Sinistra button{
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 12px 25px;    
+    margin-top: -50px;
+    cursor: pointer; 
+    transition: 0.3s;  
+}
+.Parte_Sinistra button:hover{
+    background-color: #ffffff;
+    color: #000000;
+    transition: 0.3s;   
+}
+
+.Parte_Sinistra button:active{
+    background-color: #0066ff;
+    color: #ffffff;
+    transition: 0.1s;
+}
+
+.Parte_Sinistra h1{
+    color: #000000;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2vw;
+    font-weight: 500;
+    width: 100%;    
+}
+
+.Parte_Sinistra span{
+    color: #ff0066;
+    font-size: 3vw;
+    font-weight: 900;
+    padding: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 4px 1px 1px rgb(0, 0, 0);    
+}
+
+#Nome{
+    font-size: 3vw;
+    color: #0066ff;
+    text-shadow:  3px 1px 1px rgb(0, 0, 0); 
+}
+
+
+.Contenitore_Parte_Destra{
+    width: 40%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.Parte_Destra{
+    background-color: #000000;
+    animation: movimento_blob 15s infinite linear alternate;
+    overflow: hidden;
+    
+}
+
+.Parte_Destra img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover; 
+    position: relative;
+    top: 20px;
+    left: 0px;
+    transition: 0.3s;
+    filter: drop-shadow(0px -5px 7px #0066ff);
+
+}
+.Parte_Destra img:hover{
+    transform: scale(1.1) translateY(-20px);
+    transition: 0.3s;
+}
+
+
+.Freccia_giu{
+    width: 100%;
+    margin: 50px auto;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    text-decoration: underline;
+    
+}
+
+.Freccia_giu h5{
+    font-weight: 500;
+}
+
+.Freccia_giu img{
+    animation: punta_in_giu 0.5s cubic-bezier(0.46,0.03,0.52,0.96) infinite alternate;
+}
+
+.Progetti{
+    background-color: #000000;
+    margin: 80px auto;
+    height: 800px;
+    border-top: 1px solid black;
+    
+}
+
+.Progetti h1{
+    font-family: 'Space Mono', monospace;
+    font-size: 5.9rem;
+    text-transform: uppercase;
+    padding-left: 80px;
+    padding-top: 30px;
+    letter-spacing: -8px;
+    font-weight: 100;
+    color: #ffffff;
+}
+
+
+#Contenitore_Progetti{
+    padding: clamp(1rem,5vw,6rem);
+    display:flex;
+    flex-direction: column;
+}
+
+#Contenitore_Progetti a{
+    color: rgb(255, 255, 255, 0.20);
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(3rem,8vw,2rem);
+    text-decoration: none;
+    position: relative;
+    transition: 200ms;
+}
+
+#Contenitore_Progetti img{
+    width:  400px;
+    height: 400px;
+    object-fit: contain;
+    position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: transform 250ms, opacity 250ms;
+    pointer-events: none;
+}
+
+#Contenitore_Progetti a:hover>img{
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+
+#Contenitore_Progetti a:hover{
+    color: white;
+    transition: 200ms;
+}
+
+#Contenitore_Progetti span{
+    display: block;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    position: relative;
+    z-index: 2;
+}
+
+#Contenitore_Progetti span:hover{
+    border-bottom: 1px solid #ff0066;
+    border-top: 1px solid #ff0066;
+}
+
+#Dark_Site{
+    position: fixed;
+    bottom: 8%;
+    right: 1.4%;
+    width: 40px;
+    height: 40px;
+    border-radius: 90px;
+    mix-blend-mode: difference;
+    z-index: 99;
+}
+#Dark_Site img{
+    width: 60%;
+}
+
+#Dark_Site:hover + .Informazioni_Dark_site h1{
+    opacity: 1;
+    transition: 0.4s;
+}
+.Informazioni_Dark_site{
+    position: fixed;
+    bottom: 16%;
+    right: 0%;
+}
+
+.Informazioni_Dark_site h1{
+    font-size: 15px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: 0.4s;
+    color: #0066ff;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+    transition: all 0.8s ease;
+
+}
+
+.dark-mode a{
+    color: white;
+}
+.dark-mode h1{
+    color: rgb(255, 255, 255);
+}
+
+.dark-mode button{
+    background-color: white;
+    color: #000000;
+}
+
+.dark-mode .Parte_Destra{
+    background-color: white;
+}
+
+.dark-mode .Progetti{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.dark-mode .Freccia_giu img{
+    -webkit-filter: drop-shadow(0px 0px 0 white)
+    drop-shadow(0px 0px 0 white);
+    filter: drop-shadow(2px 0px 0 white) 
+    drop-shadow(1px 0px 0 white);
+}
+
+@keyframes movimento_blob {
+    0%{
+        border-radius: 45% 55% 70% 30% / 59% 60% 40% 41% ;
+
+    }
+    10%{
+        border-radius: 45% 55% 70% 35% / 59% 60% 40% 41% ;
+    }
+    20%{
+        border-radius: 53% 47% 65% 35% / 59% 64% 38% 41% ;
+    }
+    30%{
+        border-radius: 40% 60% 52% 48% / 51% 64% 36% 49% ;
+    }
+    40%{
+        border-radius:40% 60% 61% 39% / 59% 43% 57% 41%  ;
+        
+    }
+    50%{
+        border-radius: 45% 55% 65% 35% / 59% 60% 40% 41% ;
+    }
+    60%{
+        border-radius: 53% 47% 65% 35% / 59% 64% 36% 41% ;
+    }
+    70%{
+        border-radius: 40% 60% 52% 48% / 51% 64% 36% 49% ;
+    }
+    80%{
+        border-radius: 45% 55% 65% 35% / 59% 60% 40% 45% ;
+    }
+    90%{
+        border-radius: 53% 47% 60% 35% / 59% 64% 36% 41% ;
+    }
+
+    100%{
+        border-radius:40% 60% 61% 39% / 59% 43% 57% 47%  ;
+        
+    }
+    
+}
+
+@keyframes punta_in_giu {
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(7px);
+    }
+}
+
+
+@media screen and (max-width: 1150px) {
+    .Collegamenti{
+        width: 50%;
+    }
+    
+    .Parte_Destra img{
+        width: 350px;
+        height: 350px;
+    }
+    .Parte_Sinistra button{
+        margin-top: -100px;
+    }
+    .Social.active{
+        left: -3.5%;
+    }
+
+    .Freccia_giu{
+        margin: 20px auto;
+    }
+    .Social{
+        top: 42%;
+    }
+
+}
+
+
+@media screen and (max-width: 991px) {
+    .Parte_Destra img{
+        width: 300px;
+        height: 300px;
+    }
+    .Parte_Sinistra h1{
+        font-size: 2.5vw;
+    }
+    .Social{
+        top: 42%;
+    }
+
+    .Freccia_giu{
+        margin: -20px auto;
+    }
+    .Social.active{
+        left: -3.7%;
+    }
+
+    .Parte_Sinistra span{
+        text-shadow: 2px 1px 1px rgb(0, 0, 0);    
+    }
+    
+    #Nome{
+        font-size: 3.2vw;
+        color: #0066ff;
+        text-shadow:  2px 1px 1px rgb(0, 0, 0); 
+    }
+    .Parte_Sinistra span{
+        font-size: 3vw;
+    }
+    
+    
+}
+
+
+@media screen and (max-width: 790px) {
+
+    .Hamburger{
+        display: block;
+        position:absolute;
+        right: 5%;
+        top: 5%;
+        padding: 0.5rem;
+        overflow: hidden;
+        
+    }
+
+    .Hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+
+    }
+    .Hamburger.active .bar:nth-child(2){
+        opacity: 0;
+
+    }
+    .Hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+
+    }
+    .Collegamenti{
+        position: absolute;
+        left: -100%;
+        top: 14.5%;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #000000;
+        height: 70%;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease-in-out; 
+        z-index: 99;   
+        border-bottom: 8px solid #0066ff; 
+        border-top: 2px solid #0066ff; 
+    }
+    .Collegamenti a{
+        color: white;
+        font-size: 2rem;
+        font-family: 'Space Mono', monospace;
+    }
+    .Collegamenti li{
+        margin: 40px;
+    }
+    .Collegamenti.active{
+        left: 0%;
+    }
+    
+    .Wrapper_Contenuto{
+        flex-direction: column-reverse;
+        margin: 20px auto;
+    }
+    .Parte_Destra img{
+        width: 300px;
+        height: 300px;
+    }
+    .Parte_Sinistra{
+        width: 100%;
+        height:50%;
+        justify-content: space-around;
+    }
+    .Parte_Sinistra h1{
+        font-size: 3.4vw;
+    }
+    .Parte_Sinistra button{
+        margin-top: 40px;
+    }
+    .Social.active{
+        left: -4.5%;
+    }
+    .Contenitore_Parte_Destra{
+        width: 100%;
+        justify-content: center;
+        padding-top: 0px;
+        padding-bottom: 40px;
+        
+    }
+    .Parte_Sinistra span{
+        font-size: 4vw;
+    }
+    #Nome{
+        font-size: 4vw;
+        color: #0066ff;
+        text-shadow:  2px 1px 1px rgb(0, 0, 0); 
+    }
+    .Freccia_giu{
+        margin-top: 50px;
+    }
+    .Informazioni_Dark_site{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 640px){
+    .Collegamenti{
+        top: 15.6%;
+    }
+
+    .Parte_Sinistra h1{
+        font-size: 5vw;
+    }
+    .Parte_Sinistra span{
+        font-size: 6vw;
+        text-shadow:  2px 0px 0px rgb(0, 0, 0); 
+    }
+    .Parte_Sinistra button{
+        margin-top: -10px;
+    }
+    
+    .Freccia_giu{
+        margin-top: 10px;
+    }
+    #Nome{
+        font-size: 6vw;
+        color: #0066ff;
+        text-shadow:  2px 0px 0px rgb(0, 0, 0); 
+    }
+    
+    .Progetti h1{
+        font-size: 4em;
+        padding-left: 20px;
+    }
+    .Social{
+        display: none;
+    }
+    .Social.active{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
