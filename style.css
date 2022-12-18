@@ -1,10 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-    cursor: none;    
+    cursor: none; 
+   
 }
-
-
 
 body {
     height: 900vh;
@@ -37,7 +36,6 @@ nav {
     justify-content: space-around;
 }
 
-
 .Hamburger{
     display: none;
     width: 40px;
@@ -52,9 +50,6 @@ nav {
     float: right;
     transition: all 0.3s cubic-bezier(.17,.67,.83,.67);
 }
-
-
-
 
 .Logo {
     width: 220px;
@@ -74,8 +69,6 @@ nav {
     list-style: none;
     width: 43%;
 }
-
-
 
 .Collegamenti a {
     color: rgb(0, 0, 0);
@@ -100,12 +93,14 @@ nav {
     width: 8px;
     position: fixed;
     transform: translate(0px,0px);
-    background-color: #000000;
+    background-color: white;
     border-radius: 50%;
     transition: height .3s cubic-bezier(0.46,0.03,0.52,0.96), width .3s cubic-bezier(0.46,0.03,0.52,0.96);
     pointer-events: none;
     z-index: 99;
+    mix-blend-mode: difference;
 }
+
 
 
 .outer_cursor{
@@ -113,11 +108,26 @@ nav {
     width:  40px;
     border-radius: 50%;
     border: 2px solid #0066ff;
+    background-color: #0066ff27;
     position: fixed;
     transform: translate(0px, 0px);
     pointer-events: none;
-    z-index: 98;
-    
+    z-index: 98;   
+}
+
+.outer_cursor.active{
+    background-color: rgb(240, 248, 255);
+    border: none;
+    mix-blend-mode: difference;
+    height: 80px;
+    width:  80px;
+    transition: all 0.1s;
+}
+
+
+
+.inner_cursor.active{
+    background-color: #ffffff00;
 }
 
 .Social{
@@ -130,7 +140,6 @@ nav {
     cursor: pointer;
     -webkit-box-shadow: 3px 0px 0px 2px #0066ff; 
     box-shadow: 0px 0px 0px 2px #0066ff;
-
 }
 
 .Social.active{
@@ -258,7 +267,6 @@ nav {
     background-color: #000000;
     animation: movimento_blob 15s infinite linear alternate;
     overflow: hidden;
-    
 }
 
 .Parte_Destra img{
@@ -284,7 +292,6 @@ nav {
     text-align: center;
     font-family: 'IBM Plex Mono', monospace;
     text-decoration: underline;
-    
 }
 
 .Freccia_giu h5{
@@ -295,25 +302,91 @@ nav {
     animation: punta_in_giu 0.5s cubic-bezier(0.46,0.03,0.52,0.96) infinite alternate;
 }
 
-.Progetti{
-    background-color: #000000;
-    margin: 80px auto;
-    height: 800px;
-    border-top: 1px solid black;
-    
-}
 
 .Progetti h1{
     font-family: 'Space Mono', monospace;
     font-size: 5.9rem;
     text-transform: uppercase;
-    padding-left: 80px;
-    padding-top: 30px;
-    letter-spacing: -8px;
+    padding: 2rem;
+    letter-spacing: 0px;
     font-weight: 100;
     color: #ffffff;
+    text-align: center;
 }
 
+.Progetti{
+    padding-bottom: 60px;
+    margin-top: 100px;
+}
+
+
+.Container_progetti{
+    width: 90%;
+    height: 800px;
+    margin: 40px auto;
+    position: relative;
+    border: 3px solid white;
+    overflow: hidden;
+}
+
+.item img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 30%;
+    animation: show 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: both;
+}
+
+.Navigazione{
+    height: 20%;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    display: grid;
+    grid-template-columns: 3fr repeat(2, 1fr);
+    grid-template-rows: 2fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border-top: 3px solid white;
+}
+
+.Descrizione{
+    border-right: 3px solid white;
+    color: white;
+    overflow: scroll;
+    
+}
+
+.Indietro{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid white;
+}
+.Indietro img{
+    width: 30%;
+}
+
+.Avanti{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid white;
+    transition: 0.5s ease-in-out;
+}
+.Avanti img{
+    width: 40%;
+}
+
+
+
+
+
+
+
+/* Firefox 
 
 #Contenitore_Progetti{
     padding: clamp(1rem,5vw,6rem);
@@ -364,6 +437,8 @@ nav {
     border-bottom: 1px solid #ff0066;
     border-top: 1px solid #ff0066;
 }
+
+*/
 
 #Dark_Site{
     position: fixed;
@@ -422,10 +497,6 @@ nav {
     background-color: white;
 }
 
-.dark-mode .Progetti{
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-}
 
 .dark-mode .Freccia_giu img{
     -webkit-filter: drop-shadow(0px 0px 0 white)
@@ -437,6 +508,13 @@ nav {
 .dark-mode .bar{
     background-color: white;
 }
+
+
+.dark-mode .Logo{
+    filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));
+}
+
+
 
 @keyframes movimento_blob {
     0%{
@@ -487,6 +565,19 @@ nav {
         transform: translateY(7px);
     }
 }
+
+@keyframes show {
+    from {
+        transform:translateX(-350px);
+        opacity:0%
+    }
+    to {
+        transform:translateX(0px);
+        opacity:50%
+    }
+}
+
+
 
 
 @media screen and (max-width: 1150px) {
@@ -545,6 +636,10 @@ nav {
     }
     .Parte_Sinistra span{
         font-size: 3vw;
+    }
+
+    .Container_progetti{
+        height: 600px;       
     }
     
     
@@ -656,6 +751,13 @@ nav {
     .Informazioni_Dark_site{
         display: none;
     }
+
+    .Container_progetti{
+        height: 400px;
+    }
+
+   
+    
     
 }
 
@@ -668,6 +770,7 @@ nav {
         font-size: 5vw;
     }
     .Parte_Sinistra span{
+        padding: 0;
         font-size: 6vw;
         text-shadow:  2px 0px 0px rgb(0, 0, 0); 
     }
@@ -694,6 +797,12 @@ nav {
     .Social.active{
         display: none;
     }
+    .Container_progetti{
+        height: 400px;
+    }
+
+
+   
 }
 
 

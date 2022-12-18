@@ -24,10 +24,10 @@
     <div class="Informazioni_Dark_site">
         <h1>Dark Mode</h1>
     </div>
-    <!--
+    <!-- Slider
     <div class="Vegeta_loader">
         <img src="./images/vegeta_final_flash_sprites_by_pokemonzfan_d70l21s.gif" alt="">
-    </div>-->
+    </div> -->
 
 
     <nav>
@@ -84,31 +84,50 @@
 
     <div id="Progetti" class="Progetti">
         <h1>My Projects</h1>
-        <div id="Contenitore_Progetti">
-            <a href="">
-                <span>-I Can</span>
-                <img src="" alt="">
-            </a>
-            <a href="">
-                <span>-Show</span>
-                <img src="./images/2.jpg" alt="">
-            </a>
-            <a href="">
-                <span>-You</span>
-                <img src="./images/3.jpg" alt="">
-            </a>
-            <a href="">
-                <span>-This</span>
-                <img src="./images/4.jpg" alt="">
-            </a>
-            <a href="">
-                <span>-Thing</span>
-                <img src="./images/5.jpg" alt="">
-            </a>
+        <div class="Container_progetti"> <!-- Slider -->
+            <div class="item"><!-- item -->
+                <img src="/images/1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="/images/2.jpg" alt="">
+            </div>
+
+            <div class="item">
+                <img src="/images/4.jpg" alt="">
+            </div>
+
+            <div class="Navigazione">
+                <div class="Descrizione">
+                </div>
+
+                <div class="Indietro" onclick="previousSlide()"><img src="./images/Freccia_Indietro.svg" alt=""></div>
+                <div class="Avanti" onclick="nextSlide()"><img src="./images/Freccia_Avanti.svg" alt=""></div>
+            </div>
+
+
+
         </div>
+
     </div>
 
+    <!--
 
+    <div id="slider">
+        <a href="#" class="control_next">>></a>
+        <a href="#" class="control_prev"></a>
+        <ul>
+            <li>SLIDE 1</li>
+            <li style="background: #aaa;">SLIDE 2</li>
+            <li>SLIDE 3</li>
+            <li style="background: #aaa;">SLIDE 4</li>
+        </ul>
+    </div>
+
+    <div class="slider_option">
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">Autoplay Slider</label>
+    </div>
+-->
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

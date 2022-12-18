@@ -57,7 +57,7 @@ setTyper(text, words);
 function setTyper(element, words) {
 
   const LETTER_TYPE_DELAY = 40;
-  const WORD_STAY_DELAY = 1200;
+  const WORD_STAY_DELAY = 3000;
 
   const DIRECTION_FORWARDS = 0;
   const DIRECTION_BACKWARDS = 1;
@@ -122,45 +122,90 @@ window.addEventListener("scroll", () => {
 });
 
 
-const Progetti = document.getElementById("Contenitore_Progetti");
-
-for(const link of Contenitore_Progetti.getElementsByTagName("a")) {
-  link.onmousemove = e =>{
-    const rect = link.getBoundingClientRect(),
-    img = link.querySelector("img");
-    img.style.left = `${e.clientX - rect.left}px`;
-    img.style.top = `${e.clientY - rect.top}px` ;
-   
-  }
-}
-
-window.onmousemove = e =>{
-  const percent = e.clientY / window.innerHeight/3,
-        y= percent *Progetti.offsetHeight*-.5;
-
-  Progetti.animate({
-    transform:`translateY(${y}px)`
-  },{
-    fill: "forwards",
-    duration: 4000
-  })
-}
-
-
-var text1 = document.getElementById("primo")
-var movie1 = document.getElementById("video")
-text1.addEventListener("mouseover", ()=>{
-  movie1.play();
-})
-
-text1.addEventListener("mouseleave", ()=>{
-  movie1.pause();
-})
-
-
 
 
 function myFunction() {
   var element = document.body;
   element.classList.toggle("dark-mode");
 }
+
+let counter = 0;
+
+
+let slideIndex = 1;
+
+showSlides(slideIndex);
+
+function nextSlide() {
+  showSlides(slideIndex += 1); 
+}
+/* Decrease the index by 1 - show the previous slide: */
+function previousSlide() {
+  showSlides(slideIndex -= 1);  
+}
+
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+  
+  
+}
+
+function showSlides(n) {
+  
+  /* We refer to the elements with the class name "item", that is, to the pictures: */
+  let slides = document.getElementsByClassName("item");
+  
+  /* Checking the number of slides: */
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+      slideIndex = slides.length;
+
+  }
+
+  /* Loop through each slide in a for loop: */
+  for (let slide of slides) {
+      slide.style.display = "none";
+  }
+  /* Making an element block: */
+  slides[slideIndex - 1].style.display = "block";    
+ 
+}
+
+    
+const Avanti = document.querySelector(".Avanti");
+const Indietro = document.querySelector(".Indietro");
+const Cursore = document.querySelector(".outer_cursor");
+const Cursore_Interno = document.querySelector(".inner_cursor");
+
+
+Avanti.addEventListener("click",() =>{
+  Avanti.classList.toggle("active");
+})
+
+Avanti.addEventListener('mouseover', (event) => {
+  Cursore.classList.add("active");
+  Cursore_Interno.classList.add("active");
+});
+
+Avanti.addEventListener('mouseleave', (event) => {
+  Cursore.classList.remove("active");
+  Cursore_Interno.classList.remove("active");
+});
+
+
+Indietro.addEventListener("click",() =>{
+  Indietro.classList.toggle("active");
+})
+
+Indietro.addEventListener('mouseover', (event) => {
+  Cursore.classList.add("active")
+  Cursore_Interno.classList.add("active");
+});
+
+Indietro.addEventListener('mouseleave', (event) => {
+  Cursore.classList.remove("active");
+  Cursore_Interno.classList.remove("active");
+});
